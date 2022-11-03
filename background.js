@@ -12,8 +12,7 @@ class Background {
 
     preload() {
         this.img = loadImage('./images/road.png');
-        // this.player = loadImage('./images/main-car.png');
-        // this.obstacle =
+        
 
     }
 
@@ -30,11 +29,3 @@ class Background {
     }
 
 }
-
-
-
-
-
-
-
-

@@ -2,53 +2,69 @@ let gamestarted = false;
 let background = new Background();
 let player = new Player();
 let obstacles = [];
-let obstacle2 = new Obstacle2();
+// let obstacle2 = new Obstacle2();
 let racing;
 let y1 = 0;
 let y2;
 let scrollSpeed = 2;
+let obstacle3 = ['g6390.png', 'g5254.png', 'g5277.png', 'g5286.png', 'g5295.png', 'g5304.png', 'g5318.png', 'g5333.png', 'g5342.png', 'g5351.png', 'g5360.png', 'g5360.png', 'g5369.png', 'g5381.png', 'g5393.png', 'g5405.png', 'g5417.png' ]
+// let obstacle4 = obstacle3[Math.floor(Math.random()*obstacle3.length)]
+let obstacle;
+let obstacleImages;
+let scores = [];
+let test = 0;
+let mode;
+
 
 function preload() {
     background.preload();
-    player.preload();
-   
-    obstacle2.preload()
-    
-    
+    player.preload();    
     title = loadImage('./images/start.png');
     racing = loadImage('./images/car-racing.png');
+    obstacleImages = [
+        loadImage(`./images/${obstacle3[0]}`),
+        loadImage(`./images/${obstacle3[1]}`),
+        loadImage(`./images/${obstacle3[2]}`)
+
+    ]
+
 }
 function setup() {
     let myCanvas = createCanvas(400, 600);
     myCanvas.parent("canvas1");
      y2 = height;
-     score = 0;
+     scores = 0;
+     mode = 0
+     for (let i = 0; i < 100; i++) {
+        test += 10;
+        scores[i] = test;
+     }
 }
-// console.log(player)
-// console.log(obstacles)
 
-// console.log(player, obstacles)
 function draw() {
     clear();
     background.draw();
     player.draw();
-    obstacle2.draw();
-    if (frameCount % 200 ===0 ) {
-        obstacles.push(obstacle2());
-        // console.log(obstacles)
-        obstacles.forEach((obstacle) => {
+    
+    if (frameCount % 150 ===0 ) {
+        obstacles.push(new Obstacle2(obstacleImages[Math.floor(Math.random() * 3)]));
+
+
+    }
+
+    obstacles.forEach((obstacle) => {
             obstacle.draw();
         })
-    } 
+     
    
 
     
     if (!gamestarted) {
-        image (title, 48, 500, 300, 60);
-        image (racing, 50, 30, 300, 200);
+        image(title, 48, 500, 300, 60);
+        image(racing, 50, 30, 300, 200);
     } 
     else {
-        score = score + Math.round(getFrameRate()/30);
+        score = scores + Math.round(getFrameRate()/30);
     }
     
     y1 -= scrollSpeed;
@@ -60,17 +76,14 @@ function draw() {
         y2 = height;
     }
 
-
-
 }
 
-// function preload() {
-//     background.preload();
-//     player.preload();
-//     obstacles.preload()
-//     title = loadImage('./images/start.png');
-//     racing = loadImage('./images/car-racing.png');
-// }
+function moveCars () {
+    if (this.player.y === -50) {
+        scores++;
+    }
+}
+
 
 function mouseClicked() {
         gamestarted = true 
@@ -84,4 +97,14 @@ function keyPressed() {
     } else if (keyCode === RIGHT_ARROW) {
         player.moveRight();
     }
+
+function leaveUp() {
+    if(scores === scores[i])
+    {
+        player.sp++;
+        scores++;
+
+
+    }
+}
 }
