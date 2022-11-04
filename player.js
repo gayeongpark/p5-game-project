@@ -10,7 +10,7 @@ class Player {
     
     preload(){
         this.player = loadImage('./images/main-car.png');
-        this.gameover = loadImage('./images/game-over.png')
+        this.gameover = loadImage('./images/game-over.png');
     }
 
     draw () {
@@ -19,12 +19,14 @@ class Player {
     }
 
     moveRight() {
-            this.x += 77;
+
+            this.x += 50;
 
     } 
+
     moveLeft () {
 
-            this.x -= 77;
+            this.x -= 50;
     }
 
     

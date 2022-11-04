@@ -20,7 +20,7 @@ class Background {
         clear();
         image(this.img, this.x, this.y, this.width, this.height);
         image(this.img, this.x, this.y - this.height, this.width, this.height);
-        this.y++;
+        this.y = this.y+5;
 
         if (this.y > 600) {
             this.y = 0

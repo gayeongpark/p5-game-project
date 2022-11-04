@@ -11,7 +11,7 @@ let obstacle3 = ['g6390.png', 'g5254.png', 'g5277.png', 'g5286.png', 'g5295.png'
 // let obstacle4 = obstacle3[Math.floor(Math.random()*obstacle3.length)]
 let obstacle;
 let obstacleImages;
-let scores = [];
+let scores = 0;
 let test = 0;
 let mode;
 
@@ -24,9 +24,23 @@ function preload() {
     obstacleImages = [
         loadImage(`./images/${obstacle3[0]}`),
         loadImage(`./images/${obstacle3[1]}`),
-        loadImage(`./images/${obstacle3[2]}`)
+        loadImage(`./images/${obstacle3[2]}`),
+        loadImage(`./images/${obstacle3[3]}`),
+        loadImage(`./images/${obstacle3[4]}`),
+        loadImage(`./images/${obstacle3[5]}`),
+        loadImage(`./images/${obstacle3[6]}`),
+        loadImage(`./images/${obstacle3[7]}`),
+        loadImage(`./images/${obstacle3[8]}`),
+        loadImage(`./images/${obstacle3[9]}`),
+        loadImage(`./images/${obstacle3[10]}`),
+        loadImage(`./images/${obstacle3[11]}`),
+        loadImage(`./images/${obstacle3[12]}`),
+        loadImage(`./images/${obstacle3[13]}`),
+
 
     ]
+    loseImage = loadImage('./images/game-over.png');
+    winImage = loadImage('./images/Success.png')
 
 }
 function setup() {
@@ -52,6 +66,15 @@ function draw() {
 
     }
 
+if (frameCount % 20 === 0) {
+    scores++;
+    document.getElementById('score').innerText = scores
+
+}
+
+
+
+
     obstacles.forEach((obstacle) => {
             obstacle.draw();
         })
@@ -74,6 +97,20 @@ function draw() {
          y1 = height
     } if (y2 < - height) {
         y2 = height;
+    }
+
+    obstacles.forEach(function(obstacle){
+        
+        if(obstacle.collision(player) === true) {
+            console.log('collision');
+            image(loseImage, 100, 100, 200, 200);
+            noLoop()
+        } 
+    })
+
+    if (scores === 100) {
+        image(winImage, 100, 100, 200, 200);
+        noLoop();
     }
 
 }
