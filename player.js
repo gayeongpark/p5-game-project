@@ -9,8 +9,8 @@ class Player {
     }
     
     preload(){
-        this.player = loadImage('./images/main-car.png');
-        this.gameover = loadImage('./images/game-over.png');
+        this.player = loadImage('images/main-car.png');
+        this.gameover = loadImage('images/game-over.png');
     }
 
     draw () {

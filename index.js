@@ -19,28 +19,28 @@ let mode;
 function preload() {
     background.preload();
     player.preload();    
-    title = loadImage('./images/start.png');
-    racing = loadImage('./images/car-racing.png');
+    title = loadImage('images/start.png');
+    racing = loadImage('images/car-racing.png');
     obstacleImages = [
-        loadImage(`./images/${obstacle3[0]}`),
-        loadImage(`./images/${obstacle3[1]}`),
-        loadImage(`./images/${obstacle3[2]}`),
-        loadImage(`./images/${obstacle3[3]}`),
-        loadImage(`./images/${obstacle3[4]}`),
-        loadImage(`./images/${obstacle3[5]}`),
-        loadImage(`./images/${obstacle3[6]}`),
-        loadImage(`./images/${obstacle3[7]}`),
-        loadImage(`./images/${obstacle3[8]}`),
-        loadImage(`./images/${obstacle3[9]}`),
-        loadImage(`./images/${obstacle3[10]}`),
-        loadImage(`./images/${obstacle3[11]}`),
-        loadImage(`./images/${obstacle3[12]}`),
-        loadImage(`./images/${obstacle3[13]}`),
+        loadImage(`images/${obstacle3[0]}`),
+        loadImage(`images/${obstacle3[1]}`),
+        loadImage(`images/${obstacle3[2]}`),
+        loadImage(`images/${obstacle3[3]}`),
+        loadImage(`images/${obstacle3[4]}`),
+        loadImage(`images/${obstacle3[5]}`),
+        loadImage(`images/${obstacle3[6]}`),
+        loadImage(`images/${obstacle3[7]}`),
+        loadImage(`images/${obstacle3[8]}`),
+        loadImage(`images/${obstacle3[9]}`),
+        loadImage(`images/${obstacle3[10]}`),
+        loadImage(`images/${obstacle3[11]}`),
+        loadImage(`images/${obstacle3[12]}`),
+        loadImage(`images/${obstacle3[13]}`),
 
 
     ]
-    loseImage = loadImage('./images/game-over.png');
-    winImage = loadImage('./images/Success.png')
+    loseImage = loadImage('images/game-over.png');
+    winImage = loadImage('images/Success.png')
 
 }
 function setup() {
